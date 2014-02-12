@@ -10,7 +10,7 @@ The prototype enables the user to filter the activities by country units, [secto
 
 ### Data
 
-Currently, Open-UN culls data from two UN organizations that publish aid activities with recorded locations - UNDP and UNOPS. As more and more organizations improve on their data quality and start to publish granular activity locations, the site can grow to accommodate more datasets. 
+Currently, OpenUN culls data from two UN organizations that publish aid activities with recorded locations - UNDP and UNOPS. As more and more organizations improve on their data quality and start to publish granular activity locations, the site can grow to accommodate more datasets.
 
 ### Site Specs
 
@@ -25,7 +25,7 @@ The site runs as a client-side app with [BackBone.js](http://backbonejs.org/) an
 
 ### Open for improvement
 
-By becoming an open source project, Open-UN welcomes all improvement pull requests. The current prototype can be improved in multiple ways:
+By becoming an open source project, OpenUN welcomes all improvement pull requests and suggestions via [the issue queue](https://github.com/undp/open-un/issues). The current prototype can be improved in multiple ways:
 
 - Better ways to display location data:
 
@@ -33,7 +33,7 @@ Since all locations are recorded with a certain precision level (eg. ADM1, PPL) 
 
 - Automated xml-to-json process:
 
-The current site requires periodical update when new datasets are added to IATI by the reporting organizations. Suggestions to incorporate the IATI api for automated data updates are welcome.
+The current site requires periodical mannual updates when new datasets are added to IATI by the reporting organizations. Suggestions to incorporate the IATI api for automated data updates are welcome.
 
 - Scalable data download methods:
 
