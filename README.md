@@ -1,6 +1,6 @@
-## Open-UN
+## OpenUN
 
-Open-UN is a project instigated by UNDP (United Nations Development Programme) and built by Development Seed, with the intent to bring together and better visualize the worldwide activities amongst UN branches. 
+OpenUN is a project instigated by UNDP (United Nations Development Programme) and built by Development Seed, with the intent to bring together and better visualize the worldwide activities amongst UN branches. 
 
 This prototype utilizes published datasets from [IATI](http://www.iatiregistry.org/about-2), the International Aid Transparency Initiative. At the core of aid transparency, _is knowing the details of who is doing what, where. IATI is a multi-stakeholder effort to make this information available._
 
