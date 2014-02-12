@@ -1,0 +1,83 @@
+---
+---
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class='no-js' lang='en'>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+	<link href='{{site.baseurl}}/css/normalize.css' rel='stylesheet' />
+	<link href='{{site.baseurl}}/css/foundation.css' rel='stylesheet' />
+	<link href='{{site.baseurl}}/css/animate-min.css' rel='stylesheet' />
+	<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.css' rel='stylesheet' />
+	<link href='{{site.baseurl}}/css/site.css' rel='stylesheet' />
+</head>
+<body>
+	<!-- header -->
+	<div class='header'>
+		<div class='row'>
+			<div class='small-4 medium-8 columns'>
+				<a href='{{site.baseurl}}/'>OPEN.UN.ORG</a>
+			</div>
+			<div class='small-4 medium-2 columns'>
+				<small>
+					<a href='#'>About</a> | 
+					<a href='#'>Data</a> | 
+					<a href='#'>Contribute</a>
+				</small>
+			</div>
+			<div class='small-4 medium-2 columns ds'>
+				<small>
+					<a href='http://developmentseed.org' target='_blank'>Built by Development Seed<span class='logo'></span></a>
+				</small>
+			</div>
+		</div>
+	</div>
+	<!-- facets and map -->
+	<div class='row'>
+		<div id='facets' class='small-12 medium-3 columns'></div>
+		<div id='map' class='small-12 medium-9 columns'></div>
+		<!-- location type should only show up when cluster markers are present -->
+		<!--div id='loc-type' class='small-12 columns'>
+			<ul class='loc-items'>
+				<li class='loc-item'>National/Capital</li>
+				<li class='loc-item'>First-order Admin Division</li>
+				<li class='loc-item'>Second-order Admin Division</li>
+				<li class='loc-item'>Specific Location</li>
+			</ul>
+		</div-->
+	</div>
+	<!-- intro paragraph-->
+	<div class='intro animated fadeInUp'>
+		<p>Welcome to open.un.org, a project instigated by UNDP and built by Development Seed, with the intent of bringing together and better visualizing activities fromt different UN branches. You can <a>learn more about the project</a> and <a>contribute</a>.</p>
+		<a class='close' href='#'>×</a>
+	</div>
+	<!-- table -->
+	<div class='row'>
+		<div id='table' class='small-12 columns'></div>
+	</div>
+	<!-- templates -->
+	<script id='template-facet' type='text/template' >{% include facet._ %}</script>
+	<script id='templated-nested' type='text/template'>{% include nested._ %}</script> 	<!-- nested list within table (sector and location type) -->
+	<script id='template-table' type='text/template'>{% include table._ %}</script>
+	<script id='template-circlepopup' type='text/template'>{% include circlepopup._%}</script>
+	<script id='template-clusterpopup' type='text/template'>{% include clusterpopup._%}</script>
+	<!-- scripts -->
+	<script src='{{site.baseurl}}/js/vendor/jquery.js'></script>
+	<script src='{{site.baseurl}}/js/vendor/underscore-min.js'></script>
+	<script src='{{site.baseurl}}/js/vendor/backbone-min.js'></script>
+	<script src='{{site.baseurl}}/js/vendor/tablesort.min.js'></script>
+	<script src='{{site.baseurl}}/js/vendor/accounting.min.js'></script>
+	<script src='{{site.baseurl}}/js/foundation.min.js'></script>
+	<script src='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js'></script>
+	<script src='//api.tiles.mapbox.com/mapbox.js/v1.6.0/mapbox.js'></script>
+	<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+	<script src='{{site.baseurl}}/js/site.js'></script>
+	<script>
+		$(document).foundation();
+		$('.intro .close').on('click',function(e){
+			e.preventDefault();
+			$('.intro').removeClass('fadeInUp').addClass('fadeOutDown');
+		});
+	</script>
+</body>

@@ -1,0 +1,18 @@
+<% _.each(facets,function(f){ %>
+<div class='facet'>
+	<h5 class='facet-name'><%= f.text %></h5>
+	<ul class='facet-items'>
+		<% _.each(f.items, function(d,i){ %>
+			<li class='facet-item'>
+			<% if (f.cat === 'country'){ %>
+				<a id='<%= f.cat + "-" + d.split('_')[1] %>' href='#'><%= d.split('_')[0] %></a>
+			<% } else { %>
+				<a id='<%= f.cat + "-" + d.replace(/ /g,"_")%>' href='#'><%= d %></a>
+			<% } %>
+			</li>
+		<% })%>
+	</ul>
+</div>
+<% }) %>
+
+<a id='download'>Click to download selected data</a>

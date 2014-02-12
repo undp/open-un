@@ -1,0 +1,3 @@
+baseurl: /open-un
+exclude:
+  - README.md

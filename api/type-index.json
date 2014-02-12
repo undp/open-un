@@ -1,0 +1,52 @@
+[
+    {
+        "type": "PCL",
+        "descr": "political entity (i.e. a country)",
+        "zoom": "3"
+    },
+    {
+        "type": "PPLC",
+        "descr": "capital of a political entity",
+        "zoom": "3"
+    },
+    {
+        "type": "ADM1",
+        "descr": "first-order administrative division",
+        "zoom": "4"
+    },
+    {
+        "type": "PPLA",
+        "descr": "seat of a first-order administrative division",
+        "zoom": "4"
+    },
+    {
+        "type": "ADM2",
+        "descr": "second-order administrative division",
+        "zoom": "5"
+    },
+    {
+        "type": "PPLA2",
+        "descr": "seat of a second-order administrative division",
+        "zoom": "5"
+    },
+    {
+        "type": "CNS",
+        "descr": "concession area",
+        "zoom": "6"
+    },
+    {
+        "type": "FRM",
+        "descr": "farm",
+        "zoom": "6"
+    },
+    {
+        "type": "PPL",
+        "descr": "populated place",
+        "zoom": "6"
+    },
+    {
+        "type": "RES",
+        "descr": "reserve",
+        "zoom": "6"
+    }
+]

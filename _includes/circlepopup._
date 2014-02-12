@@ -1,0 +1,9 @@
+<div class='popup'>
+	<h6 class='popup-title'><%= countryFullName%></h6>
+	<table class='popup-content'>
+		<tr>
+			<td>Total Activities</td>
+			<td><%= actTotal%><span class='loc-label'>in <%= locTotal %> locations</span></td>
+		</tr>
+	</table>
+</div>

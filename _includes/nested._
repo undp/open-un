@@ -1,0 +1,5 @@
+<ul>
+<% _.each(sectors,function(sector){ %>
+	<li><%= sector%></li>
+<% } %>
+</ul>

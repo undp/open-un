@@ -1,0 +1,45 @@
+<!-- <h5><%= title.length %> activities with <%= locationNum %> locations</h5> -->
+<table id='activity-table' class='small-12 columns'>
+	<thead>
+		<tr>
+			<th class='no-sort'>Title</th>
+			<th>Budget</th>
+			<th>Expenditure</th>
+			<th>Sector</th>
+			<th>Reporting Org</th>
+			<th>Implementing Org</th>
+			<th class='no-sort'>Location Type</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% _.each(title,function(d,i){ %>
+		<tr class='activity'>
+			<td class='no-sort'>
+				<%= d %>
+			</td>
+			<td><%= accounting.formatMoney(parseFloat(budget[i]),'$',0) %></td>
+			<td><%= accounting.formatMoney(parseFloat(expenditure[i]),'$',0) %></td>
+			<td class='nested'>
+				<% if (_.isArray(sector[i])){ %>
+					<% _.each(sector[i],function(sec){ %>
+						<span><%= sec%></span>
+					<% }) %>
+				<% } else { %>
+					<span><%= sector[i]%></span>
+				<% } %>
+			</td>
+			<td><%= reporting[i] %></td>
+			<td><%= implementer[i] %></td>
+			<td class='no-sort nested'>
+				<% if (_.isArray(type[i])){ %>
+					<% _.each(type[i],function(t){ %>
+						<span><%= t%></span>
+					<% }) %>
+				<% } else { %>
+					<span><%= type[i]%></span>
+				<% } %>
+			</td>
+		</tr>
+		<% }) %>
+	</tbody>
+</table>

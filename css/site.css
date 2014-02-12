@@ -1,0 +1,251 @@
+/* layout */
+
+body {
+	background:whitesmoke;
+	}
+table {
+	border:1px solid #34597C;
+	}
+.header {
+	padding:20px 0;
+	background:#fff;
+	border-bottom:1px solid #ddd;
+	}
+.ds a {
+	color:#888;
+	}
+.ds .logo {
+	display:block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width:20px;
+	height:20px;
+	background:url(../images/ds.png) no-repeat;
+	}
+.intro {
+	position:absolute;
+	bottom:0;
+	width:100%;
+	background:#fff;
+	}
+.intro p {
+	font-size:12px;
+	padding:20px;
+	width:80%;
+	margin:0 auto;
+	}
+.intro p a {
+	text-decoration: underline;
+	}
+.intro .close {
+	position:absolute;
+	top:5px;
+	right:10px;
+	}
+#map {
+	margin-top:19px;
+	height:485px;
+	box-shadow:0 0 2px #888;
+	}
+#download {
+	position: absolute;
+	top: 492px;
+	font-size: 10px;
+	font-weight:700;
+	text-transform: uppercase;
+	}
+#download:before {
+	content:'▶';
+	margin-right:5px;
+	}
+#table {
+	margin-top:20px;
+	padding-right:0;
+	}
+#table tr th,
+#table tr td {
+	font-size:12px;
+	background:white;
+	}
+#table tr {
+	border-bottom:1px solid #ddd;
+	}
+#table tr:last-child {
+	border-color:#34597C;
+	}
+#table tr td span {
+	display:block;
+	padding-bottom:4px;
+	}
+.facet-name {
+	padding:10px 0;
+	}
+ul.facet-items,
+ul.loc-items {
+	display:block;
+	margin:0;
+	overflow:auto;
+	background:#fff;
+	border:1px solid #34597C;
+	}
+ul.facet-items li,
+ul.loc-items li {
+	height:auto;
+	font-size:12px;
+	padding:4px;
+	border-bottom:1px solid #ddd;
+	}
+ul.facet-items {
+	max-height:120px;
+	}
+ul.facet-items li.active {
+	font-weight:700;
+	border-bottom:0;
+	}
+ul.facet-items li.inactive {
+	display:none;
+	}
+ul.facet-items li.active a:after {
+	content:'×';
+	padding-left:10px;
+	}
+ul.facet-items li:last-child {
+	border-bottom:0;
+	}
+/*
+ul.loc-items {
+	position:absolute;
+	top: -500px;
+	right: 10px;
+	background:white;
+	border:0;
+	box-shadow:0px 0px 5px #bbb;
+	}
+ul.loc-items li {
+	color:#ddd;
+	border-color:whitesmoke;
+	}
+ul.loc-items li.active {
+	color:#2ba6cb;
+	}
+ul.loc-items li:last-child {
+	border-bottom:0;
+	}
+*/
+span.loc-label {
+	font-size:10px;
+	padding:3px 4px;
+	background:#ddd;
+	border-radius:2px;
+	margin: 0px 4px;
+	}
+span.color-label {
+	display:inline-block;
+	width:10px;
+	height:10px;
+	margin-left:10px;
+	}
+.pop-title span.loc-label{
+	margin:-2px 0 0 4px;
+	}
+table.popup-content tr td {
+	border:1px solid #ddd;
+	}
+table.popup-content tr td:first-child{
+	text-transform: uppercase;
+	font-size:10px;
+	font-weight:700;
+	}
+table.popup-content tr td:last-child{
+	font-size:12px;
+	}
+
+/* table sort 
+https://github.com/tristen/tablesort */
+th.sort-header {
+  cursor:pointer;
+  color:#888;
+  }
+th.sort-header:hover,
+th.sort-header.sort-up,
+th.sort-header.sort-down {
+	color:#34597C;
+  }
+th.sort-header::-moz-selection,
+th.sort-header::selection {
+  background:transparent;
+  }
+table th.sort-header:after {
+  content:'';
+  position: absolute;
+  margin: 7px 0 0 4px;
+  border-width: 0 4px 4px;
+  border-style:solid;
+  border-color:#34597C transparent;
+  visibility:hidden;
+  }
+table th.sort-header:hover:after {
+  visibility:visible;
+  }
+table th.sort-up:after,
+table th.sort-down:after,
+table th.sort-down:hover:after {
+  visibility:visible;
+	}
+table th.sort-up:after {
+  border-bottom:none;
+  border-width:4px 4px 0;
+  }
+
+/* marker cluster 
+https://github.com/Leaflet/Leaflet.markercluster/tree/master/dist
+*/
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+	background-color: rgba(132,154,175,0.8);
+	}
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div  {
+	background-color: rgb(52,89,124);
+	color:#fff;
+	}
+
+/* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small,
+.leaflet-oldie .marker-cluster-medium,
+.leaflet-oldie .marker-cluster-large {
+	background-color: #ADC4D9;
+	}
+.leaflet-oldie .marker-cluster-small div,
+.leaflet-oldie .marker-cluster-medium div,
+.leaflet-oldie .marker-cluster-large div {
+	background-color: #34597C;
+	color:#fff;
+	}
+
+.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+	}
+.marker-cluster div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+
+	text-align: center;
+	border-radius: 15px;
+	font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	}
+.marker-cluster span {
+	line-height: 30px;
+	}
+.leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
+	-webkit-transition: -webkit-transform 0.3s ease-out, opacity 0.3s ease-in;
+	-moz-transition: -moz-transform 0.3s ease-out, opacity 0.3s ease-in;
+	-o-transition: -o-transform 0.3s ease-out, opacity 0.3s ease-in;
+	transition: transform 0.3s ease-out, opacity 0.3s ease-in;
+	}

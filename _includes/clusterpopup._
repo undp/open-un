@@ -1,0 +1,18 @@
+<div class='popup'>
+	<h6 class='popup-title'><%= title%></h6>
+	<p><span class='loc-label'>Total Location: <%= locTotal %></span></p>
+	<table class='popup-content'>
+		<tr>
+			<td>Reported by</td>
+			<td><%= reporting%><span class='color-label' style='background:<%=color%>;'></span></td>
+		</tr>
+		<tr>
+			<td>Implemented by</td>
+			<td><%= implementer%></td>
+		</tr>
+		<tr>
+			<td>Location Type</td>
+			<td><%= locType%>: <em><%= locTypeFull%></em></td>
+		</tr>
+	</table>
+</div>
