@@ -24,13 +24,20 @@ ctryIndex = {}
 
 currentYear = '2013'
 
+geo = csv.DictReader(open('country_coords.csv', 'rU'), delimiter = ',', quotechar = '"')
+country_sort = sorted(geo, key = lambda x: x['iso3'])
+
 def iatiProcess1(fn):
     global activityTop
     global currentYear
 
     context = iter(etree.iterparse(fn,tag='iati-activity'))
-    for event, p in context:		
-    	hierarchy = p.attrib['hierarchy']
+    for event, p in context:
+        try:
+            hierarchy = p.attrib['hierarchy']
+        except:
+            hierarchy = '1'
+
     	if hierarchy == '1':
             iatiID = p.find("./iati-identifier").text
             activityTop[iatiID] = {
@@ -43,8 +50,7 @@ def iatiProcess1(fn):
                     "budget": 0,
                     "expenditure": 0,
                     "title": "",
-                    "description": "",
-                    "contact": { "person": "", "site": "", "email": "" }
+                    "description": ""
                     }
             try: 
             	ctryShort = p.find("./recipient-country").attrib
@@ -53,39 +59,52 @@ def iatiProcess1(fn):
                     ctryIndex[ctryName] = ctryShort.get('code')
             except:
             	pass
+
             try:
                 activityTop[iatiID]['title'] = p.find("./title").text
             except:
                 pass
+
             try:
-            	activityTop[iatiID]['reporting'] = p.find("./reporting-org").text
+            	activityTop[iatiID]['reporting'] = p.find("./reporting-org").text.replace("-"," ")
             except:
             	activityTop[iatiID]['reporting'] = ""
+
             try: 
             	activityTop[iatiID]['implementer'] = p.find("./participating-org[@role='Implementing']").text
             except:
             	activityTop[iatiID]['implementer'] = ""
+
             try: 
             	country = p.find("./recipient-country").attrib
             	activityTop[iatiID]['country'] = country.get('code')
             except:
             	activityTop[iatiID]['country'] = ""
-    # try to get sector and locations if in hierarchy = 1
+
+        # try to get sector and locations if in hierarchy = 1
             try:
                 sector = p.find("./sector[@vocabulary='DAC']")
                 activityTop[iatiID]['sector'].append(sector.text.replace("/"," and "))
             except:
-                pass
+                activityTop[iatiID]['sector'].append("Sectors Not Specified")
+
             try:
                 locations = p.findall('location')
-                locCount = 0
-                for location in locations:
-                    locCount = locCount + 1
-                    activityLoc = getLocations(location)
-                    activityTop[iatiID]['locations'].append(activityLoc)
-                activityTop[iatiID]['location'] = locCount
+                if locations: 
+                    locCount = 0
+                    for location in locations:
+                        locCount = locCount + 1
+                        activityLoc = getLocations(location)
+                        activityTop[iatiID]['locations'].append(activityLoc)
+                    activityTop[iatiID]['location'] = locCount
+                else:
+                    if ctryName:
+                        activityLoc = getCentroid(ctryName)
+                        activityTop[iatiID]['locations'].append(activityLoc)
+                        activityTop[iatiID]['location'] = 1
             except:
                 pass
+
             # get budget and expenditure
             try:
                 budgets = p.findall("./budget")
@@ -174,6 +193,26 @@ def getLocations(location):
             activityLoc['location-type'] = locType
     return activityLoc
 
+def getCentroid(ctryName):
+    global country_sort
+
+    activityLoc = {
+        "coordinates": [],
+        "location-type": ""
+        }
+
+    for ctry in country_sort:
+        if ctry['name'].decode('utf-8').lower() == ctryName.lower():
+            if ctry['lon'] != "":
+                lon = ctry['lon']
+                activityLoc['coordinates'].append(lon)
+            if ctry['lat'] != "":
+                lat = ctry['lat']
+                activityLoc['coordinates'].append(lat)
+            activityLoc['location-type'] = "PCL"
+    return activityLoc
+
+
 def linkSubActivities():
     global activityTop
     global activitySub
@@ -201,9 +240,7 @@ def linkSubActivities():
 
 def countryIndex():
     global ctryIndex
-
-    geo = csv.DictReader(open('../country_coords.csv', 'rU'), delimiter = ',', quotechar = '"')
-    country_sort = sorted(geo, key = lambda x: x['iso3'])
+    global country_sort
 
     country_index = []
     country_count = 0
@@ -253,7 +290,6 @@ def globalOutput():
         del g['locations']
         del g['description']
         del g['title']
-        del g['contact']
 
     writeout = json.dumps(globalJSON, sort_keys=True, separators=(',',':'))
     f_out = open('../../api/global.json', 'wb')
@@ -264,9 +300,7 @@ if __name__ == "__main__":
     os.chdir("tmp/")
     for fn in os.listdir('.'):
         if fn.endswith(".xml"):
-            #print fn
             iatiProcess1(fn)
-            # iatiProcess1('Afghanistan_projects.xml')
     countryIndex()
     linkSubActivities()
     countryObjects()

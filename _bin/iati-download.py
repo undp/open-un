@@ -16,7 +16,7 @@ def download():
 
 	print "Downloading IATI files..."
 
-	organizations = ['undp','unops']
+	organizations = ['undp','unops','unhabitat','wfp','unfpa']
 
 	iatiOrgURL = 'http://www.iatiregistry.org/api/rest/dataset'
 	iatiBaseURL = 'http://www.iatiregistry.org/api/rest/dataset/'

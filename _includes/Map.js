@@ -161,7 +161,10 @@ views.Map = Backbone.View.extend({
 
 		var color = [
 			{"reporting":"United Nations Office for Project Services","marker-color":"#ADC4D9"},
-			{"reporting":"United Nations Development Programme","marker-color":"#34597C"}
+			{"reporting":"United Nations Development Programme","marker-color":"#34597C"},
+			{"reporting":"World Food Programme","marker-color":"#6BB7FF"},
+			{"reporting":"United Nations Population Fund","marker-color":"#5C6E7F"},
+			{"reporting":"UN Habitat","marker-color":"#5692CC"}
 		];
 
 		// populate geojson objects with location and other attributes (two locations might have the same attributes)
