@@ -7,7 +7,7 @@ views.Map = Backbone.View.extend({
 		if (this.layer){this.layer.clearLayers()};
 		$('#table').empty();
 
-		this.map = this.map || L.mapbox.map(this.el,'nate.h8gf883c',{
+		this.map = this.map || L.mapbox.map(this.el,'undp.map-heik8a26',{
 			minZoom:2,
 			maxZoom:7,
 			center: [10,3],

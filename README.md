@@ -12,13 +12,13 @@ While publishing data to an open standard is the first big step towards coordina
 
 ### § Data
 
-Currently, OpenUN culls data from two UN organizations that publish aid activities with recorded locations - UNDP and UNOPS. As more and more organizations improve on their data quality and start to publish granular activity locations, the map would become more nuanced.
+Currently, OpenUN culls data from five UN organizations that publish aid activities. Only two organizations provide data with recorded locations - UNDP and UNOPS. As more and more organizations improve on their data quality and start to publish granular activity locations, the map would become more nuanced.
 
 Data, scripts and process can be found in the [`_bin`](https://github.com/undp/open-un/tree/gh-pages/_bin) folder.
 
 ### § Static APIs
 
-IATI activities are downloaded as xml files, processed via [python scripts](https://github.com/undp/open-un/tree/gh-pages/_bin) into json, and consumed as static APIs on open.un.org. [The json structure](https://gist.github.com/jueyang/45db66a392db0bb11a34) reflects what is important in visualizing an activity on the map, namely - the location(s), reporting organization, sector(s), and implementing organization(s).
+IATI activities are downloaded as xml files, processed via [python scripts](https://github.com/undp/open-un/tree/gh-pages/_bin) into json, and consumed as static APIs on open.undp.org/open-un. [The json structure](https://gist.github.com/jueyang/45db66a392db0bb11a34) reflects what is important in visualizing an activity on the map, namely - the location(s), reporting organization, sector(s), and implementing organization(s).
 
 There are [significant advantages](http://developmentseed.org/blog/2013/10/24/transforming-iati-data/) of using json and a static API: faster site speed and more consistent data quality.
 
@@ -32,25 +32,7 @@ The site runs as a client-side app with [BackBone.js](http://backbonejs.org/) an
 
 ## How to Contribute
 
-### § Articulate Your Needs
-
-For non-developers who want to improve the site, it would be very helpful for you articulate your needs that pertain to using this prototype. To get the conversation going, you can strat an issue in the [GitHub issue queue](https://github.com/undp/open-un/issues). The discussion will be visible to the public.
-
-### § Send Pull Request
-
-For those who would like to improve the prototype itself code- and organization-wise, comments and pull requests are welcome. Here are a few potential problems to start with:
-
-- **Better ways to display location data:**
-
-Since all locations are recorded with a certain precision level (eg. ADM1, PPL) according to the [IATI location criteria](http://iatistandard.org/codelists/location_type/), the visual proximity of plotted activities are not indicative of the physical one. For more effective visualizations, ways to differentiate the two kinds of proximities need to be devised.
-
-- **Automated xml-to-json process:**
-
-The current site requires periodical mannual updates when new datasets are added to IATI by the reporting organizations. Suggestions to incorporate the IATI api for automated data updates are welcome.
-
-- **Scalable data download methods:**
-
-The current dataset is downloaded as jsons stored [directly in the DOM](https://github.com/undp/open-un/blob/gh-pages/_includes/Facet.js#L127), which serves as a proof of concept but will be slow with a potentially growing dataset. The problem can be framed as a better way to parse static API and have them downloadable.
+Read more about [contributing to the development](https://github.com/undp/open-un/blob/gh-pages/CONTRIBUTING.md) of this project. 
 
 =====
 
