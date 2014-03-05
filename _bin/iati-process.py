@@ -1,5 +1,13 @@
 #!/usr/bin/python
 
+# ---------------
+# IATI XML Parser 
+# ---------------
+# Parses IATI XML into a standard json structure
+# Based on v1.03 of IATI Standard
+# More information on the IATI Github repo: https://github.com/IATI/IATI-Schemas
+# 
+
 # Import Python Modules 
 import os
 import sys
@@ -22,6 +30,7 @@ activitySubArray = []
 
 ctryIndex = {}
 
+# Hard coded 2013 for prototype 
 currentYear = '2013'
 
 geo = csv.DictReader(open('country_coords.csv', 'rU'), delimiter = ',', quotechar = '"')
@@ -36,6 +45,7 @@ def iatiProcess1(fn):
         try:
             hierarchy = p.attrib['hierarchy']
         except:
+            # Define hierarchy when this is not specified in an XML
             hierarchy = '1'
 
     	if hierarchy == '1':
