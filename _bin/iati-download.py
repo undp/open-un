@@ -1,5 +1,12 @@
 #!/usr/bin/python
 
+# ---------------
+# IATI XML Parser 
+# ---------------
+# Downloads directly from IATI API v1
+# Documentation here: http://iatiregistry.org/registry-api
+# 
+
 # Import Python Modules 
 import os
 import sys
@@ -16,7 +23,8 @@ def download():
 
 	print "Downloading IATI files..."
 
-	organizations = ['undp','unops']
+	# To add more organizations, add IATI api organization name
+	organizations = ['undp','unops','unhabitat','wfp','unfpa']
 
 	iatiOrgURL = 'http://www.iatiregistry.org/api/rest/dataset'
 	iatiBaseURL = 'http://www.iatiregistry.org/api/rest/dataset/'

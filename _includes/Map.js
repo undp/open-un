@@ -7,7 +7,7 @@ views.Map = Backbone.View.extend({
 		if (this.layer){this.layer.clearLayers()};
 		$('#table').empty();
 
-		this.map = this.map || L.mapbox.map(this.el,'nate.h8gf883c',{
+		this.map = this.map || L.mapbox.map(this.el,'undp.map-heik8a26',{
 			minZoom:2,
 			maxZoom:7,
 			center: [10,3],
@@ -161,7 +161,10 @@ views.Map = Backbone.View.extend({
 
 		var color = [
 			{"reporting":"United Nations Office for Project Services","marker-color":"#ADC4D9"},
-			{"reporting":"United Nations Development Programme","marker-color":"#34597C"}
+			{"reporting":"United Nations Development Programme","marker-color":"#34597C"},
+			{"reporting":"World Food Programme","marker-color":"#6BB7FF"},
+			{"reporting":"United Nations Population Fund","marker-color":"#5C6E7F"},
+			{"reporting":"UN Habitat","marker-color":"#5692CC"}
 		];
 
 		// populate geojson objects with location and other attributes (two locations might have the same attributes)
