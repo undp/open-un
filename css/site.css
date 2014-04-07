@@ -7,7 +7,7 @@ table {
 	border:1px solid #34597C;
 	}
 .header {
-	padding:20px 0;
+	padding:10px 0;
 	background:#fff;
 	border-bottom:1px solid #ddd;
 	}
@@ -19,8 +19,9 @@ table {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width:20px;
-	height:20px;
+	left: -300px;
+	width:600px;
+	height:80px;
 	background:url(../images/ds.png) no-repeat;
 	}
 .intro {
