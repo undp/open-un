@@ -174,6 +174,32 @@ router.App = Backbone.Router.extend({
 $(function() {
     app = new router.App();
     Backbone.history.start();
+    $('#txt_search_filters').keyup(function(){
+		var keyword = $(this).val().toLowerCase();
+
+		$('.facet').each(function(){
+		    $(this).find('.facet-item').hide();
+
+		    var matched = false;
+		    $(this).find('.facet-item a').each(function(){
+			if($(this).text().toLowerCase().indexOf(keyword.toString().toLowerCase())>=0){
+			    matched = true;
+			    $(this).closest('.facet-item').show();
+			}
+		    });
+
+		    if(matched){
+			$(this).show();
+		    }else{
+			$(this).hide();
+		    }
+
+		    if(keyword == ""){
+			$('.facet').show();
+		    }
+
+		});
+    });
 });
 
 

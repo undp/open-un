@@ -250,3 +250,14 @@ https://github.com/Leaflet/Leaflet.markercluster/tree/master/dist
 	-o-transition: -o-transform 0.3s ease-out, opacity 0.3s ease-in;
 	transition: transform 0.3s ease-out, opacity 0.3s ease-in;
 	}
+#search_container{
+	float: left;
+	display: inline-block;
+	margin: 0 0 0 15px;
+}
+#lbl_txt_search_filters{
+	font-weight: bold;
+}
+#txt_search_filters{
+	margin: 10px 0 0 0;
+}
