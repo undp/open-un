@@ -119,6 +119,7 @@ views.Facet = Backbone.View.extend({
 						.join('|');
 
 		app.navigate(facetUrl,{trigger:true});
+		$('#txt_search_filters').val('');
 
 		// keep the event from firing multiple times
 		this.undelegateEvents();
