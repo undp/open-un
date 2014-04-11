@@ -36,7 +36,7 @@ views.Facet = Backbone.View.extend({
 				namePairs = names.map(function(m){
 					return {
 						"shrt": m.get('country'),
-						"full": m.get('country-full') + '_' + m.get('country')
+						"full": m.get('country-full') + '_' + m.get('country') 
 					}
 				});
 				setTemplate();
@@ -119,7 +119,7 @@ views.Facet = Backbone.View.extend({
 						.join('|');
 
 		app.navigate(facetUrl,{trigger:true});
-		$('#txt_search_filters').val('');
+
 		// keep the event from firing multiple times
 		this.undelegateEvents();
 	},
