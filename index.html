@@ -21,8 +21,8 @@
 			</div>
 			<div class='small-4 medium-2 columns'>
 				<small>
-					<a href="http://www.undp.org/content/undp/en/home/operations/transparency/overview.html">About</a> | 
-					<a href='https://github.com/undp/open-un#-data' target='_blank'>Data</a> | 
+					<a href="http://www.undp.org/content/undp/en/home/operations/transparency/overview.html">About</a> |
+					<a href='https://github.com/undp/open-un#-data' target='_blank'>Data</a> |
 					<a href='https://github.com/undp/open-un#how-to-contribute' target='_blank'>Contribute</a>
 				</small>
 			</div>
@@ -35,7 +35,14 @@
 	</div>
 	<!-- facets and map -->
 	<div class='row'>
-		<div id='facets' class='small-12 medium-3 columns'></div>
+		<div id='search_container'>
+			<label id="lbl_txt_search_filters">Search in Filters:</label><br/>
+			<input type="text" name="txt_search_filters" id="txt_search_filters"/>
+		</div>
+		<br/><br/><br/><br/>
+		<div id='facets' class='small-12 medium-3 columns'>
+
+		</div>
 		<div id='map' class='small-12 medium-9 columns'></div>
 		<!-- location type should only show up when cluster markers are present -->
 		<!--div id='loc-type' class='small-12 columns'>
